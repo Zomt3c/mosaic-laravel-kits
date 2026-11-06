@@ -8,6 +8,6 @@
 /.mcp.json
 /boost.json
 /compose.yaml
-/docker
+/docker/dev
 /lang
 /specs
