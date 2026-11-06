@@ -1,0 +1,13 @@
+# Managed by Mosaic, Laravel Boost, Spec Kit and Laravel Lang: Vite+ must not reformat them,
+# otherwise every update of these tools would show formatting changes.
+# specs/ holds the feature documents (spec, plan, tests overview, progress), written by Spec Kit
+# and the agents for reading, not code: their formatting is not checked.
+/.claude
+/.specify
+/CLAUDE.md
+/.mcp.json
+/boost.json
+/compose.yaml
+/docker
+/lang
+/specs
