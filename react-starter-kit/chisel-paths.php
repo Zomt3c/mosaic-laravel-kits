@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'login' => 'resources/js/pages/auth/login.tsx',
     'register' => 'resources/js/pages/auth/register.tsx',
