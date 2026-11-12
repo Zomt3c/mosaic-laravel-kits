@@ -59,3 +59,22 @@ test('every language has every text the English one has', function () {
 
     expect($missing)->toBe([]);
 });
+
+test('every React language file has every text the English one has', function () {
+    $english = resource_path('js/locales/en.json');
+    $missing = [];
+
+    foreach (glob(resource_path('js/locales/*.json')) ?: [] as $file) {
+        if ($file === $english) {
+            continue;
+        }
+
+        $present = array_keys(json_decode((string) file_get_contents($file), true) ?: []);
+
+        foreach (array_diff(array_keys(json_decode((string) file_get_contents($english), true) ?: []), $present) as $key) {
+            $missing[] = basename($file).": {$key}";
+        }
+    }
+
+    expect($missing)->toBe([]);
+});
