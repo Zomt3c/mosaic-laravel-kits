@@ -45,3 +45,11 @@ test('pages receive the name of the app', function () {
 
     $response->assertInertia(fn (Assert $page) => $page->where('name', 'Mosaic Test App'));
 });
+
+test('pages receive the language that is set when the page is built', function () {
+    app()->setLocale('de');
+
+    $response = $this->get(route('home'));
+
+    $response->assertInertia(fn (Assert $page) => $page->where('locale', 'de'));
+});

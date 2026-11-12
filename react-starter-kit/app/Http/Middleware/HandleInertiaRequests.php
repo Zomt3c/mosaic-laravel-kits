@@ -41,6 +41,8 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'name' => config('app.name'),
+            // A function, so the language is read when the page is built: whatever sets it later in the request (a middleware, a controller) is always used.
+            'locale' => fn (): string => app()->getLocale(),
             'auth' => [
                 'user' => $request->user() ? UserResource::make($request->user())->resolve($request) : null,
             ],
