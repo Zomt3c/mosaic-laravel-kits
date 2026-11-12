@@ -1,4 +1,5 @@
 import { createInertiaApp, router } from '@inertiajs/react';
+import { initializeTheme } from '@/hooks/use-appearance';
 import { followLanguage } from '@/i18n';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -14,3 +15,6 @@ void createInertiaApp({
 router.on('navigate', (event) => {
     followLanguage(event.detail.page.props.locale);
 });
+
+// This will set light / dark mode on load...
+initializeTheme();

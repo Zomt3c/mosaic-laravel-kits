@@ -1,10 +1,9 @@
 {
-    "Deploy now": "Deploy now",
-    "Documentation": "Documentation",
-    "Laravel has an incredibly rich ecosystem.": "Laravel has an incredibly rich ecosystem.",
-    "Let's get started": "Let's get started",
-    "Read the": "Read the",
-    "Watch video tutorials at": "Watch video tutorials at",
-    "We suggest starting with the following.": "We suggest starting with the following.",
-    "Welcome": "Welcome"
+    "Describe what you want to build. Mosaic plans it with you, writes the spec and the tests, builds it and checks it.": "Describe what you want to build. Mosaic plans it with you, writes the spec and the tests, builds it and checks it.",
+    "Mosaic for Laravel + React. Spec it. Test it. Ship it.": "Mosaic for Laravel + React. Spec it. Test it. Ship it.",
+    "Open Claude Code in this project and type:": "Open Claude Code in this project and type:",
+    "Switch to dark mode": "Switch to dark mode",
+    "Switch to light mode": "Switch to light mode",
+    "Welcome": "Welcome",
+    "Your app starts here": "Your app starts here"
 }
