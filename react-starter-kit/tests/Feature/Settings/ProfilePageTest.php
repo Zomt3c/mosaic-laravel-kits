@@ -51,6 +51,8 @@ test('the profile is not changed with invalid input', function (array $input, st
     'name missing' => [['email' => 'new@example.com'], 'name', 'The name field is required.'],
     'name not text' => [['name' => ['Ada'], 'email' => 'new@example.com'], 'name', 'The name field must be a string.'],
     'name too long' => [['name' => str_repeat('a', 256), 'email' => 'new@example.com'], 'name', 'The name field must not be greater than 255 characters.'],
+    'name with broken bytes' => [['name' => "Ad\xC3\x28", 'email' => 'new@example.com'], 'name', 'The name field must be valid UTF-8 text.'],
+    'email with broken bytes' => [['name' => 'Grace', 'email' => "gr\xC3\x28@example.com"], 'email', 'The email field must be valid UTF-8 text.'],
     'email missing' => [['name' => 'Grace'], 'email', 'The email field is required.'],
     'email not text' => [['name' => 'Grace', 'email' => ['new@example.com']], 'email', 'The email field must be a string.'],
     'email invalid' => [['name' => 'Grace', 'email' => 'not-an-email'], 'email', 'The email field must be a valid email address.'],

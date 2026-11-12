@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Concerns;
 
 use App\Models\User;
+use App\Rules\ValidUtf8Text;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Unique;
@@ -31,7 +32,7 @@ trait ProfileValidationRules
      */
     protected function nameRules(): array
     {
-        return ['required', 'string', 'max:255'];
+        return ['required', 'string', new ValidUtf8Text, 'max:255'];
     }
 
     /**
@@ -44,6 +45,7 @@ trait ProfileValidationRules
         return [
             'required',
             'string',
+            new ValidUtf8Text,
             'email',
             'max:255',
             $userId === null
