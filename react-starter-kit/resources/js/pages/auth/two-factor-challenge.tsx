@@ -11,8 +11,10 @@ import {
 } from '@/components/ui/input-otp';
 import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
 import { store } from '@/routes/two-factor/login';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function TwoFactorChallenge() {
+    const { t } = useTranslation();
     const [showRecoveryInput, setShowRecoveryInput] = useState<boolean>(false);
     const [code, setCode] = useState<string>('');
 
@@ -26,7 +28,8 @@ export default function TwoFactorChallenge() {
                 title: 'Recovery code',
                 description:
                     'Please confirm access to your account by entering one of your emergency recovery codes.',
-                toggleText: 'login using an authentication code',
+                toggleText:
+                    'or you can <toggle>login using an authentication code</toggle>',
             };
         }
 
@@ -34,7 +37,8 @@ export default function TwoFactorChallenge() {
             title: 'Authentication code',
             description:
                 'Enter the authentication code provided by your authenticator application.',
-            toggleText: 'login using a recovery code',
+            toggleText:
+                'or you can <toggle>login using a recovery code</toggle>',
         };
     }, [showRecoveryInput]);
 
@@ -51,7 +55,7 @@ export default function TwoFactorChallenge() {
 
     return (
         <>
-            <Head title="Two-factor authentication" />
+            <Head title={t('Two-factor authentication')} />
 
             <div className="space-y-6">
                 <Form
@@ -67,7 +71,7 @@ export default function TwoFactorChallenge() {
                                     <Input
                                         name="recovery_code"
                                         type="text"
-                                        placeholder="Enter recovery code"
+                                        placeholder={t('Enter recovery code')}
                                         autoFocus={showRecoveryInput}
                                         required
                                     />
@@ -109,20 +113,26 @@ export default function TwoFactorChallenge() {
                                 className="w-full"
                                 disabled={processing}
                             >
-                                Continue
+                                {t('Continue')}
                             </Button>
 
                             <div className="text-center text-sm text-muted-foreground">
-                                <span>or you can </span>
-                                <button
-                                    type="button"
-                                    className="cursor-pointer text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
-                                    onClick={() =>
-                                        toggleRecoveryMode(clearErrors)
-                                    }
-                                >
-                                    {authConfigContent.toggleText}
-                                </button>
+                                <Trans
+                                    i18nKey={authConfigContent.toggleText}
+                                    components={{
+                                        toggle: (
+                                            <button
+                                                type="button"
+                                                className="cursor-pointer text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                                                onClick={() =>
+                                                    toggleRecoveryMode(
+                                                        clearErrors,
+                                                    )
+                                                }
+                                            />
+                                        ),
+                                    }}
+                                />
                             </div>
                         </>
                     )}

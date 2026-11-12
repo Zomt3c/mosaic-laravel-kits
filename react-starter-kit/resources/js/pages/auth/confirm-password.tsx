@@ -12,11 +12,14 @@ import {
 } from '@/actions/Laravel/Passkeys/Http/Controllers/PasskeyConfirmationController';
 import PasskeyVerify from '@/components/passkey-verify';
 /* @end-chisel-passkeys */
+import { useTranslation } from 'react-i18next';
 
 export default function ConfirmPassword() {
+    const { t } = useTranslation();
+
     return (
         <>
-            <Head title="Confirm password" />
+            <Head title={t('Confirm password')} />
 
             {/* @chisel-passkeys */}
             <PasskeyVerify
@@ -24,9 +27,9 @@ export default function ConfirmPassword() {
                     options: confirmOptions(),
                     submit: confirmStore(),
                 }}
-                label="Confirm with passkey"
-                loadingLabel="Confirming..."
-                separator="Or confirm with password"
+                label={t('Confirm with passkey')}
+                loadingLabel={t('Confirming...')}
+                separator={t('Or confirm with password')}
             />
             {/* @end-chisel-passkeys */}
 
@@ -34,11 +37,11 @@ export default function ConfirmPassword() {
                 {({ processing, errors }) => (
                     <div className="space-y-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
+                            <Label htmlFor="password">{t('Password')}</Label>
                             <PasswordInput
                                 id="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder={t('Password')}
                                 autoComplete="current-password"
                                 autoFocus
                             />
@@ -53,7 +56,7 @@ export default function ConfirmPassword() {
                                 data-test="confirm-password-button"
                             >
                                 {processing && <Spinner />}
-                                Confirm password
+                                {t('Confirm password')}
                             </Button>
                         </div>
                     </div>
