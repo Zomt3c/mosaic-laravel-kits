@@ -19,9 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Seeders run more than once (setup, mock, acceptance), so the test user is created only once.
+        if (User::query()->where('email', 'test@example.com')->doesntExist()) {
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+        }
     }
 }

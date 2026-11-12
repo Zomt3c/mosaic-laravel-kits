@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -41,7 +42,7 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'name' => config('app.name'),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $request->user() ? UserResource::make($request->user())->resolve($request) : null,
             ],
         ];
     }
