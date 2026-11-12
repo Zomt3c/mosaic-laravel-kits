@@ -110,9 +110,9 @@ export default function Register({ passwordRules }: Props) {
 
                         <div className="text-center text-sm text-muted-foreground">
                             <Trans
-                                i18nKey="Already have an account? <link>Log in</link>"
+                                i18nKey="Already have an account? <anchor>Log in</anchor>"
                                 components={{
-                                    link: (
+                                    anchor: (
                                         <TextLink href={login()} tabIndex={6} />
                                     ),
                                 }}

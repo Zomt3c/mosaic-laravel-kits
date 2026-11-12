@@ -61,8 +61,8 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                 <div className="text-center text-sm text-muted-foreground">
                     <Trans
-                        i18nKey="Or, return to <link>log in</link>"
-                        components={{ link: <TextLink href={login()} /> }}
+                        i18nKey="Or, return to <anchor>log in</anchor>"
+                        components={{ anchor: <TextLink href={login()} /> }}
                     />
                 </div>
             </div>

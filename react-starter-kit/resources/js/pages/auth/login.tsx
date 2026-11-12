@@ -110,9 +110,9 @@ export default function Login({ status, canResetPassword }: Props) {
                         {/* @chisel-registration */}
                         <div className="text-center text-sm text-muted-foreground">
                             <Trans
-                                i18nKey="Don't have an account? <link>Sign up</link>"
+                                i18nKey="Don't have an account? <anchor>Sign up</anchor>"
                                 components={{
-                                    link: (
+                                    anchor: (
                                         <TextLink
                                             href={register()}
                                             tabIndex={5}

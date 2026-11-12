@@ -103,9 +103,9 @@ export default function Profile(
                                     <div>
                                         <p className="-mt-4 text-sm text-muted-foreground">
                                             <Trans
-                                                i18nKey="Your email address is unverified. <link>Click here to re-send the verification email.</link>"
+                                                i18nKey="Your email address is unverified. <anchor>Click here to re-send the verification email.</anchor>"
                                                 components={{
-                                                    link: (
+                                                    anchor: (
                                                         <Link
                                                             href={send()}
                                                             as="button"
