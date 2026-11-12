@@ -2,10 +2,15 @@
 
 declare(strict_types=1);
 
+use App\Actions\Fortify\ResetUserPassword;
+use App\Concerns\PasswordValidationRules;
 use App\Models\User;
+use App\Providers\FortifyServiceProvider;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 use Laravel\Fortify\Features;
+
+mutates(ResetUserPassword::class, PasswordValidationRules::class, FortifyServiceProvider::class);
 
 beforeEach(function () {
     $this->skipUnlessFortifyHas(Features::resetPasswords());

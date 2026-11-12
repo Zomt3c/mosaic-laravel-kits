@@ -2,7 +2,13 @@
 
 declare(strict_types=1);
 
+use App\Concerns\ProfileValidationRules;
+use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Requests\Settings\ProfileDeleteRequest;
+use App\Http\Requests\Settings\ProfileUpdateRequest;
 use App\Models\User;
+
+mutates(ProfileController::class, ProfileUpdateRequest::class, ProfileDeleteRequest::class, ProfileValidationRules::class);
 
 test('profile page is displayed', function () {
     $user = User::factory()->create();

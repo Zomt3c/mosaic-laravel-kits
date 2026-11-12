@@ -54,6 +54,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | History
+    |--------------------------------------------------------------------------
+    |
+    | Encrypt the page data stored in the browser's history state, so private
+    | data is no longer readable after logout, account deletion or the next
+    | login (each clears the history key with Inertia::clearHistory()). The
+    | browser encrypts only on HTTPS or localhost; over plain HTTP it stores
+    | the data unencrypted.
+    |
+    */
+
+    'history' => [
+
+        'encrypt' => (bool) env('INERTIA_ENCRYPT_HISTORY', true),
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Testing
     |--------------------------------------------------------------------------
     |

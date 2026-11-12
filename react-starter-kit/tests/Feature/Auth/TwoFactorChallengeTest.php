@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Providers\FortifyServiceProvider;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
+
+mutates(FortifyServiceProvider::class);
 
 beforeEach(function () {
     $this->skipUnlessFortifyHas(Features::twoFactorAuthentication());

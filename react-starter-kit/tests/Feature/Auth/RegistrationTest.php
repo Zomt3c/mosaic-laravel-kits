@@ -2,7 +2,13 @@
 
 declare(strict_types=1);
 
+use App\Actions\Fortify\CreateNewUser;
+use App\Concerns\PasswordValidationRules;
+use App\Concerns\ProfileValidationRules;
+use App\Providers\FortifyServiceProvider;
 use Laravel\Fortify\Features;
+
+mutates(CreateNewUser::class, ProfileValidationRules::class, PasswordValidationRules::class, FortifyServiceProvider::class);
 
 beforeEach(function () {
     $this->skipUnlessFortifyHas(Features::registration());

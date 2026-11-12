@@ -3,7 +3,10 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Providers\FortifyServiceProvider;
 use Inertia\Testing\AssertableInertia as Assert;
+
+mutates(FortifyServiceProvider::class);
 
 test('confirm password screen can be rendered', function () {
     $user = User::factory()->create();

@@ -2,10 +2,16 @@
 
 declare(strict_types=1);
 
+use App\Concerns\PasswordValidationRules;
+use App\Http\Controllers\Settings\SecurityController;
+use App\Http\Requests\Settings\PasswordUpdateRequest;
+use App\Http\Requests\Settings\TwoFactorAuthenticationRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
+
+mutates(SecurityController::class, PasswordUpdateRequest::class, TwoFactorAuthenticationRequest::class, PasswordValidationRules::class);
 
 test('security page is displayed', function () {
     $this->skipUnlessFortifyHas(Features::twoFactorAuthentication());

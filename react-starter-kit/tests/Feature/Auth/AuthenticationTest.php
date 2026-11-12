@@ -2,9 +2,13 @@
 
 declare(strict_types=1);
 
+use App\Http\Responses\LogoutResponse;
 use App\Models\User;
+use App\Providers\FortifyServiceProvider;
 use Illuminate\Support\Facades\RateLimiter;
 use Laravel\Fortify\Features;
+
+mutates(FortifyServiceProvider::class, LogoutResponse::class);
 
 test('login screen can be rendered', function () {
     $response = $this->get(route('login'));
