@@ -13,6 +13,7 @@ These kits stand on work that others share for free:
 
 - [Laravel](https://laravel.com): the starter kits these are based on, at the commits above (MIT license)
 - [shadcn/ui](https://ui.shadcn.com): the UI components (MIT license)
+- [Laravel Lang](https://laravel-lang.com): the translation files in `lang/` (MIT license)
 
 ## License
 
